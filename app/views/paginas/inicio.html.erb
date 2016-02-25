@@ -1,0 +1,10 @@
+ <h1>Bienvenidos!</h1>
+ <% if usuario_signed_in? %>
+  Conectado como <strong><%= current_usuario.email %></strong>.
+  <%= link_to 'Editar perfil', edit_usuario_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Salir", destroy_usuario_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Registrarse", new_usuario_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Ingresar", new_usuario_session_path, :class => 'navbar-link'  %> |
+  <%= link_to "Ingresa con Facebook", "/usuarios/auth/facebook" %>
+<% end %>
